@@ -1,0 +1,12 @@
+{
+    "Server": {
+        "name": "typescript-restify-api",
+        "authSecret": "pxAiykhD2vczwMAWsUBi",
+        "port": 9000,
+        "corsHeaders": ["Origin", "Authorization", "Location"],
+        "corsOrigins": ["*"]
+    },
+    "Logger": {
+        "level": "trace"
+    }
+}
