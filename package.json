@@ -27,7 +27,8 @@
     "dependencies": {
         "bunyan": "^1.8.12",
         "config": "^1.26.2",
-        "restify": "^6.0.1"
+        "restify": "^6.0.1",
+        "restify-cors-middleware": "github:patnolanireland/restify-cors-middleware#restify-v6-peerdep"
     },
     "devDependencies": {
         "@types/bunyan": "^1.8.3",

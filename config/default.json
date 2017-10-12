@@ -3,8 +3,8 @@
         "name": "typescript-restify-api",
         "authSecret": "pxAiykhD2vczwMAWsUBi",
         "port": 9000,
-        "corsHeaders": ["Origin", "Authorization", "Location"],
-        "corsOrigins": ["*"]
+        "corsHeaders": ["Authorization"],
+        "corsOrigins": ["http://localhost:8100"]
     },
     "Logger": {
         "level": "trace"
