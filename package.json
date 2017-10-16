@@ -21,19 +21,22 @@
         "postinstall": "npm run build",
         "start": "npm run build && node lib/server.js | bunyan",
         "test": "npm run build && cross-env NODE_ENV=test mocha --require ts-node/register --recursive test/**/*.spec.ts",
-        "watch": "concurrently -k \"npm run build -- --watch\" \"nodemon --inspect lib/server.js | bunyan\"",
+        "watch": "concurrently -rk \"npm run build -- --watch\" \"nodemon --inspect lib/server.js | bunyan\"",
         "watch:test": "npm run test -- --watch"
     },
     "dependencies": {
         "bunyan": "^1.8.12",
         "config": "^1.26.2",
+        "jsonwebtoken": "^8.1.0",
         "restify": "^6.0.1",
-        "restify-cors-middleware": "github:patnolanireland/restify-cors-middleware#restify-v6-peerdep"
+        "restify-cors-middleware": "github:patnolanireland/restify-cors-middleware#restify-v6-peerdep",
+        "restify-jwt-community": "^0.5.2"
     },
     "devDependencies": {
         "@types/bunyan": "^1.8.3",
         "@types/chai": "^4.0.4",
         "@types/config": "0.0.33",
+        "@types/jsonwebtoken": "^7.2.3",
         "@types/mocha": "^2.2.43",
         "@types/restify": "^5.0.5",
         "@types/restify-cors-middleware": "^1.0.0",
