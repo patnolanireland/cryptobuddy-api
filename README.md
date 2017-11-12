@@ -1,6 +1,6 @@
 # TypeScript Restify API Server
 
-### Prerequisites
+## Prerequisites
 
 1. [NodeJS >= 7.10.1](https://nodejs.org/)
 
