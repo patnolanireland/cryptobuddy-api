@@ -16,7 +16,7 @@
     "typings": "lib/server.d.ts",
     "scripts": {
         "clean": "rimraf lib",
-        "lint": "tslint --force --format verbose \"src/**/*.ts\"",
+        "lint": "tslint --force --format verbose \"src/**/*.ts\" && tslint --force --format verbose \"test/**/*.ts\"",
         "build": "npm run lint && echo Using TypeScript && tsc --version && tsc --pretty",
         "postinstall": "npm run build",
         "start": "npm run build && node lib/server.js | bunyan",
@@ -25,6 +25,7 @@
         "watch:test": "npm run test -- --watch-extensions",
         "watch:test:debug": "npm run watch:test -- --inspect-brk=0.0.0.0:9229"
     },
+    "pre-commit": ["lint", "test"],
     "nyc": {
         "extension": [
             ".ts",
@@ -64,6 +65,7 @@
         "mocha": "^4.0.1",
         "nodemon": "^1.12.1",
         "nyc": "^11.3.0",
+        "pre-commit": "^1.2.2",
         "source-map-support": "^0.5.0",
         "supertest": "github:visionmedia/supertest",
         "ts-node": "^3.3.0",

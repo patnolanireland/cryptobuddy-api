@@ -10,11 +10,10 @@ describe('Healthcheck', () => {
         it('should respond with a HTTP 200 OK', (done) => {
             request(api)
                 .get('/healthcheck')
-                .expect(200, done)
+                .expect(200, done);
         });
     });
 
     /* If we don't shutdown the server mocha will hang as the restify server is still running */
-    after(() => api.close())
+    after(() => api.close());
 });
-
