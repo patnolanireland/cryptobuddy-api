@@ -20,10 +20,26 @@
         "build": "npm run lint && echo Using TypeScript && tsc --version && tsc --pretty",
         "postinstall": "npm run build",
         "start": "npm run build && node lib/server.js | bunyan",
-        "test": "npm run build && cross-env NODE_ENV=test mocha --nolazy --require source-map-support/register --require ts-node/register --recursive test/**/*.spec.ts",
+        "test": "npm run build && cross-env NODE_ENV=test nyc mocha --nolazy",
         "watch": "concurrently -rk \"npm run build -- --watch\" \"nodemon --nolazy --inspect lib/server.js | bunyan\"",
         "watch:test": "npm run test -- --watch-extensions",
         "watch:test:debug": "npm run watch:test -- --inspect-brk=0.0.0.0:9229"
+    },
+    "nyc": {
+        "extension": [
+            ".ts",
+            ".tsx"
+        ],
+        "exclude": [
+            "**/*.d.ts",
+            "coverage",
+            "lib"
+        ],
+        "reporter": [
+            "html",
+            "text-summary"
+        ],
+        "all": true
     },
     "dependencies": {
         "bunyan": "^1.8.12",
@@ -47,6 +63,8 @@
         "cross-env": "^5.0.5",
         "mocha": "^4.0.1",
         "nodemon": "^1.12.1",
+        "nyc": "^11.3.0",
+        "source-map-support": "^0.5.0",
         "supertest": "github:visionmedia/supertest",
         "ts-node": "^3.3.0",
         "tslint": "^5.7.0",
