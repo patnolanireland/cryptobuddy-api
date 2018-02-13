@@ -7,6 +7,8 @@
 
 ## Quickstart
 
+Development can be performed locally as follows:
+
 ```
 
 npm install -g typescript bunyan
@@ -62,8 +64,28 @@ Sometimes it is desirable to be able to put a debugger on your tests.  This can 
 statement in your code and then running
 
 ```
-npm run watch:test:debug
+yarn watch:test:debug
 ```
 
 This will halt/break the code immediately so you'll have to hit the play button to get to your first breakpoint which
 may be line number in the file you placed your `debugger` statement on.
+
+## Docker
+
+The project has two Dockerfiles, the primary is based off the Node image and the slimmer `Dockerfile.alpine` uses the
+node alpine variant.
+
+### Docker Compose
+
+Docker compose can be used for development as follows:
+
+```
+docker-compose -f docker-compose.debug.yml up --build
+```
+
+Please ensure that `yarn` is run first to ensure that the local `node_modules` directory is present as they are mapped
+for development purposes.  The debug version of compose uses the `watch` command from npm scripts and the sourcemaps
+have been tweaked to allow Chrome Dev Tools to work in a containerized environment by virtue of inlineSourceMap.
+
+Additionally Docker Compose can be used for testing which is useful in a CI/CD environment.  Use the
+`docker-compose.test.yml` in the usual manner.
