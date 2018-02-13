@@ -2,7 +2,8 @@
 
 ### Prerequisites
 
-1. [NodeJS >= 7.10.1](https://nodejs.org/)
+1. [NodeJS >= 8.0.0](https://nodejs.org/)
+2. [Yarn](https://yarnpkg.com/)
 
 ## Quickstart
 
@@ -10,9 +11,9 @@
 
 npm install -g typescript bunyan
 
-npm install
+yarn
 
-npm run watch
+yarn watch
 
 ```
 
@@ -44,5 +45,5 @@ functionality as required.  A test configuration can be observed in `config/test
 but errors
 
 ```
-npm run test
+yarn test
 ```
