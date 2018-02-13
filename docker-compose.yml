@@ -1,0 +1,23 @@
+version: "3.3"
+
+services:
+    api:
+        image: "typescript-restify-api"
+        deploy:
+            replicas: 4
+            update_config:
+                parallelism: 2
+                delay: 30s
+            restart_policy:
+                condition: on-failure
+            resources:
+                limits:
+                    cpus: "0.5"
+                    memory: 1024M
+        ports:
+            - "9000:9000"
+        networks:
+            - api
+
+networks:
+    api:
