@@ -1,4 +1,4 @@
-# TypeScript Restify API Server
+# Crypto Buddy API Server
 
 ## Prerequisites
 

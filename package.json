@@ -1,9 +1,9 @@
 {
-    "name": "typescript-restify-api",
+    "name": "cryptobuddy-api",
     "version": "0.0.1",
-    "description": "restify-stub-api",
+    "description": "API project to communicate with Crypto Exchanges to retrieve and trade Crypto Currency",
     "license": "MIT",
-    "repository": "https://patricknolan@bitbucket.org/patricknolan/typescript-restify-api.git",
+    "repository": "git@bitbucket.org:deltareadytechnology/cryptobuddy-api.git",
     "author": "Delta Ready Technology Pty Ltd",
     "keywords": [
         "restify",
