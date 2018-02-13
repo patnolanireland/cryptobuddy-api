@@ -21,7 +21,7 @@
         "postinstall": "npm run build",
         "start": "npm run build && node lib/server.js | bunyan",
         "test": "npm run build && cross-env NODE_ENV=test mocha --nolazy --require source-map-support/register --require ts-node/register --recursive test/**/*.spec.ts",
-        "watch": "concurrently -rk \"npm run build -- --watch\" \"nodemon --nolazy --inspect lib/server.js | bunyan\"",
+        "watch": "concurrently -rk \"npm run build -- --watch\" \"nodemon --nolazy --inspect=0.0.0.0:9229 -d 20 lib/server.js | bunyan\"",
         "watch:test": "npm run test -- --watch-extensions",
         "watch:test:debug": "npm run watch:test -- --inspect-brk=0.0.0.0:9229"
     },

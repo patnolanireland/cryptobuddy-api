@@ -8,7 +8,8 @@
         "target": "es6",
         "preserveConstEnums": true,
         "removeComments": false,
-        "sourceMap": true,
+        "inlineSources": true,
+        "inlineSourceMap": true,
         "sourceRoot": "./src"
     },
     "include": [
