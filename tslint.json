@@ -1,6 +1,12 @@
 {
     "extends": "tslint:latest",
     "rules": {
+        "no-implicit-dependencies": [true, "dev"],
+        "ordered-imports": [true, {
+            "import-sources-order": "any",
+            "named-imports-order": "case-insensitive"
+        }],
         "quotemark": [true, "single", "avoid-escape"]
+
     }
 }
