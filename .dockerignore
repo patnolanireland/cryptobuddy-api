@@ -1,0 +1,14 @@
+lib
+coverage
+node_modules
+.dockerignore
+.editorconfig
+Dockerfile
+docker-*.yml
+npm-debug.log
+.git
+.gitignore
+.env
+.DS_Store
+/tmp/
+README.md

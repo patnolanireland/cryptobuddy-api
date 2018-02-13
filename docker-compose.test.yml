@@ -1,0 +1,9 @@
+version: "3.3"
+
+services:
+    sut:
+        image: "typescript-restify-api"
+        build: .
+        ports:
+            - "9001:9001"
+        command: "yarn test"

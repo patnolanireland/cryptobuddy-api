@@ -8,9 +8,7 @@ export const server = restify.createServer();
 bootstrap(server);
 
 const serverName = config.get('Server.name');
-const port = config.get('Server.port');
-const mode = process.env.NODE_ENV || 'dev';
-
-log.info(`process.env.NODE_ENV = ${process.env.NODE_ENV}`);
+const port = process.env.PORT || config.get('Server.port');
+const mode = process.env.NODE_ENV || 'development';
 
 server.listen(port, () => log.info(`${serverName} started and listening on port ${port} in ${mode} mode`));
