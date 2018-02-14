@@ -9,4 +9,4 @@ export type Spread = [
 ] & {
     /* id to be used as since when polling for new spread data */
     last: number;
-}
+};

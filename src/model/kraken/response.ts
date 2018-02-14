@@ -1,4 +1,4 @@
-export interface Response<T> {
+export interface IResponse<T> {
     error: string[];
     result: T;
 }

@@ -1,4 +1,4 @@
-export interface TickerData {
+export interface ITickerData {
     /* ask array(<price>, <whole lot volume>, <lot volume>) */
     a: [string, string, string];
     /* bid array(<price>, <whole lot volume>, <lot volume>) */

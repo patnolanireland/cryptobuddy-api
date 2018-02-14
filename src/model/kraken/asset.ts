@@ -1,4 +1,4 @@
-export interface Asset {
+export interface IAsset {
     aclass: string;
     altname: string;
     decimals: number;

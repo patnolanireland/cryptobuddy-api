@@ -1,4 +1,4 @@
-export interface AssetPair {
+export interface IAssetPair {
     /* asset class of base component */
     aclass_base: string;
     /* asset id of base component */
@@ -20,9 +20,9 @@ export interface AssetPair {
     /* array of leverage amounts available when selling */
     leverage_sell: number[];
     /* fee schedule array in [volume, percent fee] tuples */
-    fees: [number,number][];
+    fees: Array<[number, number]>;
     /* maker fee schedule array in [volume, percent fee] tuples (if on maker/taker) */
-    fees_maker: [number, number][];
+    fees_maker: Array<[number, number]>;
     /* volume discount currency */
     fee_volume_currency: string;
     /* margin call level */
