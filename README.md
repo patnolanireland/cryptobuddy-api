@@ -89,3 +89,75 @@ have been tweaked to allow Chrome Dev Tools to work in a containerized environme
 
 Additionally Docker Compose can be used for testing which is useful in a CI/CD environment.  Use the
 `docker-compose.test.yml` in the usual manner.
+
+## Heroku Deployment
+
+Heroku now allows deployment of Docker containers.
+
+### Initial Setup
+
+1. Ensure that you're logged in via the `heroku-cli`
+
+```
+heroku login
+```
+
+2. Login in to the Heroku Docker Registry via the cli
+
+```
+heroku container:login
+```
+
+3. Create a Heroku app.  The following name will be taken if you are cloning this repo so choose another or let heroku
+   auto generate with `heroku create`.
+
+```
+heroku apps:create cryptobuddy-api
+```
+
+4.  Build the docker image, the Alpine image is smaller and thus quicker to upload and works perfectly for the current
+    requirements.
+
+```
+docker build -f Dockerfile.alpine -t cryptobuddy-api .
+```
+
+5.  Use `docker tag` to label our build so Heroku can understand.
+
+```
+docker tag cryptobuddy-api:latest registry.heroku.com/cryptobuddy-api/web
+```
+
+6.  Now we can use `docker push` to upload the build.
+
+```
+docker push registry.heroku.com/cryptobuddy-api/web
+```
+
+7. Optionally you can open the Heroku website and see the app but as we this is an api it's best to proceed to step 8.
+
+```
+heroku open
+```
+
+8. Use `curl`, `wget`, `postman` or your favourite http client to verify the healthcheck endpoint.
+
+```
+curl https://cryptobuddy-api.herokuapp.com/healthcheck
+```
+
+You should get a HTTP 200 OK with a body containing a "mid" property.
+
+### Subsequent Build and Update Process
+
+Once the app has been created and deployed for the first time develop some more and when comfortable to push observe the
+following three step process.
+
+```
+docker build -f Dockerfile.alpine -t cryptobuddy-api .
+
+docker tag cryptobuddy-api:latest registry.heroku.com/cryptobuddy-api/web
+
+docker push registry.heroku.com/cryptobuddy-api/web
+```
+
