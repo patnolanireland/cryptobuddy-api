@@ -17,7 +17,7 @@
     "scripts": {
         "clean": "rimraf lib",
         "git-pre-commit": "npm run lint && npm run test",
-        "lint": "tslint --force --format verbose \"src/**/*.ts\" && tslint --force --format verbose \"test/**/*.ts\"",
+        "lint": "tslint --format verbose \"src/**/*.ts\" && tslint --format verbose \"test/**/*.ts\"",
         "build": "npm run lint && echo Using TypeScript && tsc --version && tsc --pretty",
         "postinstall": "npm run build",
         "start": "npm run build && node lib/server.js | bunyan",
@@ -46,6 +46,8 @@
         "bunyan": "^1.8.12",
         "config": "^1.29.4",
         "jsonwebtoken": "^8.1.1",
+        "request": "^2.83.0",
+        "request-promise-native": "^1.0.5",
         "restify": "^6.3.4",
         "restify-cors-middleware": "^1.1.0",
         "restify-errors": "^5.0.0",

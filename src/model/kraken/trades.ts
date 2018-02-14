@@ -12,4 +12,4 @@ export type Trades = [
 ] & {
     /* id to be used as since when polling for new trade data */
     last: number;
-}
+};
