@@ -1,4 +1,4 @@
---require ts-node/register
+--require ts-node/register --project test
 --require source-map-support/register
 --recursive
 test/**/*.spec.ts
