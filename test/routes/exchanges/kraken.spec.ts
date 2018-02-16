@@ -238,7 +238,6 @@ describe('Kraken Public API Routes', () => {
                 },
             };
 
-            nock.cleanAll();
             nock(krakenBasePublicUrl)
                 .get('/Ticker')
                 .query({
