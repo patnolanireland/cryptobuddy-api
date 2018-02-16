@@ -1,3 +1,5 @@
+import { IDictionaryItem } from '../dictionary-item';
+
 export interface ITickerData {
     /* ask array(<price>, <whole lot volume>, <lot volume>) */
     a: [string, string, string];
@@ -18,3 +20,5 @@ export interface ITickerData {
     /* today's opening price */
     o: string;
 }
+
+export type TickerDataDictionary = IDictionaryItem<ITickerData>;

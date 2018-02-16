@@ -8,5 +8,13 @@
     },
     "Logger": {
         "level": "trace"
+    },
+    "Services": {
+        "Exchanges": {
+            "Kraken": {
+                "protocol": "https",
+                "hostname": "api.kraken.com"
+            }
+        }
     }
 }

@@ -51,5 +51,5 @@ const jwtConfig = {
  * auth/facebook/callback
  * */
 const whitelistConfig = {
-    path: ['/', '/healthcheck', /(?:auth(?:$|\/\w*){1,2}$)/i],
+    path: ['/', '/healthcheck', /exchanges\/kraken\/.*/i],
 };

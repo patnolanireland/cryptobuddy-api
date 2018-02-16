@@ -1,4 +1,8 @@
+import { IDictionaryItem } from '../dictionary-item';
+
 export interface IAssetPair {
+    /* alternate pair name */
+    altname: string;
     /* asset class of base component */
     aclass_base: string;
     /* asset id of base component */
@@ -30,3 +34,5 @@ export interface IAssetPair {
     /* stop-out/liquidation margin level */
     margin_stop: number;
 }
+
+export type AssetPairDictionary = IDictionaryItem<IAssetPair>;
