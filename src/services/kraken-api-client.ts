@@ -10,6 +10,7 @@ import { IDictionaryItem } from '../model/dictionary-item';
 import {
     IAsset,
     IAssetPair,
+    IOrderBook,
     IResponse,
     IServerTime,
     ITickerData,
@@ -19,6 +20,7 @@ import {
     AssetDictionaryResponse,
     AssetPairDictionaryResponse,
     OHLCDictionaryResponse,
+    OrderBookDictionaryResponse,
     ServerTimeResponse,
     TickerDataDictionaryResponse,
 } from '../model/kraken/response';
@@ -102,11 +104,28 @@ export const getOHLCAsync =
 
             return ohlc;
         } catch (e) {
-            log.error('Failed to get assets from Kraken ', e);
+            log.error('Failed to get open high low close data from Kraken ', e);
             throw e;
         }
     };
 
+export const getOrderBookAsync = async (assetPair: string, count: number): Promise<OrderBookDictionaryResponse> => {
+        try {
+            const krakenUrl = count ?
+                `${krakenBasePublicUrl}/Depth?pair=${assetPair}&count=${count}` :
+                `${krakenBasePublicUrl}/OHLC?pair=${assetPair}`;
+
+            const orderBook = await request.get({
+                json: true,
+                url: krakenUrl,
+            });
+
+            return orderBook;
+        } catch (e) {
+            log.error('Failed to get order book from Kraken ', e);
+            throw e;
+        }
+    };
 /* Stub for now will be extended when implemeting the private api calls */
 export class KrakenPrivateApiClient {
 

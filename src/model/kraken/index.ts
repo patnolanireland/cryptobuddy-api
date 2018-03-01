@@ -6,3 +6,4 @@ export { IServerTime } from './server-time';
 export { Spread } from './spread';
 export { ITickerData } from './ticker-data';
 export { Trades } from './trades';
+export { IOrderBook } from './order-book';
