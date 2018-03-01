@@ -6,6 +6,7 @@ import { getTickerData } from './ticker-data';
 import { getOHLC } from './ohlc';
 import { getOrderBook } from './order-book';
 import { getTrades } from './trades';
+import { getSpread } from './spread';
 
 export const bootstrap = (server: Server): void => {
     server.get('exchanges/kraken/time', getServerTime);
@@ -15,4 +16,5 @@ export const bootstrap = (server: Server): void => {
     server.get('exchanges/kraken/ohlc/:pair', getOHLC);
     server.get('exchanges/kraken/order-book/:pair', getOrderBook);
     server.get('exchanges/kraken/trades/:pair', getTrades);
+    server.get('exchanges/kraken/spread/:pair', getSpread);
 };

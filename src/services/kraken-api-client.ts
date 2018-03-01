@@ -22,6 +22,7 @@ import {
     OHLCDictionaryResponse,
     OrderBookDictionaryResponse,
     ServerTimeResponse,
+    SpreadDictionaryResponse,
     TickerDataDictionaryResponse,
     TradesDictionaryResponse,
 } from '../model/kraken/response';
@@ -142,6 +143,24 @@ export const getTradesAsync = async (assetPair: string, since: number): Promise<
         return trades;
     } catch (e) {
         log.error('Failed to get trades data from Kraken ', e);
+        throw e;
+    }
+};
+
+export const getSpreadAsync = async (assetPair: string, since: number): Promise<SpreadDictionaryResponse> => {
+    try {
+        const krakenUrl = since ?
+            `${krakenBasePublicUrl}/Spread?pair=${assetPair}&since=${since}` :
+            `${krakenBasePublicUrl}/Spread?pair=${assetPair}`;
+
+        const spread = await request.get({
+            json: true,
+            url: krakenUrl,
+        });
+
+        return spread;
+    } catch (e) {
+        log.error('Failed to get recent spread data from Kraken ', e);
         throw e;
     }
 };
