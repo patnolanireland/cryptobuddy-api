@@ -1,3 +1,5 @@
+import { IDictionaryItem } from '../dictionary-item';
+
 /* OHLC - https://en.wikipedia.org/wiki/Open-high-low-close_chart */
 
 /* This intersection type acts as an extended tuple to include a named property last.
@@ -24,3 +26,5 @@ export type OHLC = [
     /* id to be used as since when polling for new, committed OHLC data */
     last: number;
 };
+
+export type OHLCDictionary = IDictionaryItem<OHLC>;

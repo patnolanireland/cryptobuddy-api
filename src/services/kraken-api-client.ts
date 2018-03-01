@@ -13,10 +13,12 @@ import {
     IResponse,
     IServerTime,
     ITickerData,
+    OHLC,
 } from '../model/kraken';
 import {
     AssetDictionaryResponse,
     AssetPairDictionaryResponse,
+    OHLCDictionaryResponse,
     ServerTimeResponse,
     TickerDataDictionaryResponse,
 } from '../model/kraken/response';
@@ -85,6 +87,25 @@ export const getTickerDataAsync = async (assetPairsCsv: string): Promise<TickerD
         throw e;
     }
 };
+
+export const getOHLCAsync =
+    async (assetPair: string, interval: number = 1, since: number): Promise<OHLCDictionaryResponse> => {
+        try {
+            const krakenUrl = since ?
+                `${krakenBasePublicUrl}/OHLC?pair=${assetPair}&interval=${interval}&since=${since}` :
+                `${krakenBasePublicUrl}/OHLC?pair=${assetPair}&interval=${interval}`;
+
+            const ohlc = await request.get({
+                json: true,
+                url: krakenUrl,
+            });
+
+            return ohlc;
+        } catch (e) {
+            log.error('Failed to get assets from Kraken ', e);
+            throw e;
+        }
+    };
 
 /* Stub for now will be extended when implemeting the private api calls */
 export class KrakenPrivateApiClient {
