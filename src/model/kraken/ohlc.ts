@@ -6,25 +6,27 @@ import { IDictionaryItem } from '../dictionary-item';
  *
  * array of array entries(<time>, <open>, <high>, <low>, <close>, <vwap>, <volume>, <count>) */
 export type OHLC = [
-    /* <time> */
-    number,
-    /* <open> */
-    string,
-    /* <high> */
-    string,
-    /* <low> */
-    string,
-    /* <close> */
-    string,
-    /* <vwap> */
-    string,
-    /* <volume> */
-    string,
-    /* <count> */
-    number
+    [
+        /* <time> */
+        number,
+        /* <open> */
+        string,
+        /* <high> */
+        string,
+        /* <low> */
+        string,
+        /* <close> */
+        string,
+        /* <vwap> */
+        string,
+        /* <volume> */
+        string,
+        /* <count> */
+        number
+    ]
 ] & {
-    /* id to be used as since when polling for new, committed OHLC data */
-    last: number;
-};
+        /* id to be used as since when polling for new, committed OHLC data */
+        last: number;
+    };
 
 export type OHLCDictionary = IDictionaryItem<OHLC>;

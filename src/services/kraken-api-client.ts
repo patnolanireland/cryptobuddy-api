@@ -23,6 +23,7 @@ import {
     OrderBookDictionaryResponse,
     ServerTimeResponse,
     TickerDataDictionaryResponse,
+    TradesDictionaryResponse,
 } from '../model/kraken/response';
 
 /* Public API calls are just simple functions as no state is maintained */
@@ -110,22 +111,40 @@ export const getOHLCAsync =
     };
 
 export const getOrderBookAsync = async (assetPair: string, count: number): Promise<OrderBookDictionaryResponse> => {
-        try {
-            const krakenUrl = count ?
-                `${krakenBasePublicUrl}/Depth?pair=${assetPair}&count=${count}` :
-                `${krakenBasePublicUrl}/OHLC?pair=${assetPair}`;
+    try {
+        const krakenUrl = count ?
+            `${krakenBasePublicUrl}/Depth?pair=${assetPair}&count=${count}` :
+            `${krakenBasePublicUrl}/Depth?pair=${assetPair}`;
 
-            const orderBook = await request.get({
-                json: true,
-                url: krakenUrl,
-            });
+        const orderBook = await request.get({
+            json: true,
+            url: krakenUrl,
+        });
 
-            return orderBook;
-        } catch (e) {
-            log.error('Failed to get order book from Kraken ', e);
-            throw e;
-        }
-    };
+        return orderBook;
+    } catch (e) {
+        log.error('Failed to get order book from Kraken ', e);
+        throw e;
+    }
+};
+
+export const getTradesAsync = async (assetPair: string, since: number): Promise<TradesDictionaryResponse> => {
+    try {
+        const krakenUrl = since ?
+            `${krakenBasePublicUrl}/Trades?pair=${assetPair}&since=${since}` :
+            `${krakenBasePublicUrl}/Trades?pair=${assetPair}`;
+
+        const trades = await request.get({
+            json: true,
+            url: krakenUrl,
+        });
+
+        return trades;
+    } catch (e) {
+        log.error('Failed to get trades data from Kraken ', e);
+        throw e;
+    }
+};
 /* Stub for now will be extended when implemeting the private api calls */
 export class KrakenPrivateApiClient {
 
