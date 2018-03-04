@@ -1,6 +1,6 @@
 {
     "Server": {
-        "name": "typescript-restify-api",
+        "name": "cryptobuddy-api",
         "authSecret": "pxAiykhD2vczwMAWsUBi",
         "port": 9000,
         "corsHeaders": ["Authorization"],

@@ -1,8 +1,8 @@
 version: "3.3"
 
 services:
-    typescript-restify-api:
-        image: "typescript-restify-api"
+    cryptobuddy-api:
+        image: "cryptobuddy-api"
         build: .
         volumes:
             - ./:/home/node/app
