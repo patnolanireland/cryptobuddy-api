@@ -9,7 +9,6 @@ npm-debug.log
 .git
 .githooks
 .gitignore
-.env
 .DS_Store
 .nyc_output
 /tmp/

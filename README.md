@@ -119,7 +119,7 @@ heroku apps:create cryptobuddy-api
     requirements.
 
 ```
-docker build -f Dockerfile.alpine -t cryptobuddy-api .
+docker build --no-cache -f Dockerfile.alpine -t cryptobuddy-api .
 ```
 
 5.  Use `docker tag` to label our build so Heroku can understand.
@@ -150,11 +150,17 @@ You should get a HTTP 200 OK with a body containing a "mid" property.
 
 ### Subsequent Build and Update Process
 
-Once the app has been created and deployed for the first time develop some more and when comfortable to push observe the
-following three step process.
+Once the app has been created and deployed for the first time develop some more and when comfortable to push do the
+following:
 
 ```
-docker build -f Dockerfile.alpine -t cryptobuddy-api .
+yarn deploy
+```
+
+This effectively wraps up and performs the following three step process.
+
+```
+docker build --no-cache -f Dockerfile.alpine -t cryptobuddy-api .
 
 docker tag cryptobuddy-api:latest registry.heroku.com/cryptobuddy-api/web
 
