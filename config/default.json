@@ -4,7 +4,7 @@
         "authSecret": "pxAiykhD2vczwMAWsUBi",
         "port": 9000,
         "corsHeaders": ["Authorization"],
-        "corsOrigins": ["http://localhost:3333"]
+        "corsOrigins": ["*"]
     },
     "Logger": {
         "level": "trace"
