@@ -1,0 +1,15 @@
+lib
+coverage
+node_modules
+.dockerignore
+.editorconfig
+Dockerfile*
+docker-*.yml
+npm-debug.log
+.git
+.githooks
+.gitignore
+.DS_Store
+.nyc_output
+/tmp/
+README.md

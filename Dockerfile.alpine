@@ -1,0 +1,26 @@
+FROM node:8-alpine
+
+MAINTAINER Pat Nolan <pat@deltareadytechnology.com.au>
+
+ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
+ENV PORT 9000
+
+RUN apk --update \
+    add --no-cache alpine-sdk tini yarn
+
+WORKDIR /home/node/app
+
+COPY ./ .
+
+RUN chown -R node:node /home/node
+
+USER node
+
+RUN yarn
+
+# EXPOSE won't be observed in a Heroku Deployment scenario. The $PORT env variable must be supplied instead
+EXPOSE 9000
+
+ENTRYPOINT ["/sbin/tini", "--" ]
+
+CMD ["yarn", "start"]

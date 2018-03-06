@@ -1,3 +1,5 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
 import * as assert from 'assert';
 import * as chai from 'chai';
 import * as config from 'config';
@@ -18,11 +20,12 @@ describe('Restricted Content', () => {
     });
 
     describe('GET /restricted with a valid JWT Bearer Token', () => {
+        const secret = process.env.AUTH_SECRET || config.get('Server.authSecret');
         const token = jwt.sign({
             firstName: 'Tommy',
             iat: Date.now() / 1000,
             lastName: 'Tester',
-        }, config.get('Server.authSecret'), {
+        }, secret, {
             expiresIn: 5000,
             subject: 'mocha unit tests',
         });

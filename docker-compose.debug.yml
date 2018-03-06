@@ -1,0 +1,12 @@
+version: "3.3"
+
+services:
+    cryptobuddy-api:
+        image: "cryptobuddy-api"
+        build: .
+        volumes:
+            - ./:/home/node/app
+        ports:
+            - "9000:9000"
+            - "9229:9229" # Expose ports for debugging via Chrome Inspect
+        command: "yarn watch"
