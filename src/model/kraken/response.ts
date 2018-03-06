@@ -1,6 +1,5 @@
 import { AssetDictionary } from './asset';
 import { AssetPairDictionary } from './asset-pair';
-import { IDictionaryItem } from '../dictionary-item';
 import { IServerTime } from './server-time';
 import { TickerDataDictionary } from './ticker-data';
 import { OHLCDictionary } from './ohlc';
