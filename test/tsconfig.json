@@ -1,0 +1,15 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "srcRoot": "test",
+        "module": "commonjs"
+    },
+    "include": [
+        "./**/*",
+        "test/**/*"
+    ],
+    "exclude": [
+        "lib",
+        "node_modules"
+    ]
+}

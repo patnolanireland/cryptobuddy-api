@@ -1,0 +1,5 @@
+{
+    "Server": {
+        "corsOrigins": ["https://cryptobuddy-pwa.herokuapp.com"]
+    }
+}

@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
     api:
-        image: "typescript-restify-api"
+        image: "cryptobuddy-api"
         deploy:
             replicas: 4
             update_config:

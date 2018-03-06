@@ -36,7 +36,7 @@ export const bootstrap = (server: restify.Server) => {
 };
 
 const jwtConfig = {
-    secret: config.get('Server.authSecret'),
+    secret: process.env.AUTH_SECRET || config.get('Server.authSecret'),
 };
 
 /* The whitelist configruation allows certain routes to remain unauthenticated.
@@ -51,5 +51,5 @@ const jwtConfig = {
  * auth/facebook/callback
  * */
 const whitelistConfig = {
-    path: ['/', '/healthcheck', /(?:auth(?:$|\/\w*){1,2}$)/i],
+    path: ['/', '/healthcheck', /exchanges\/?.*/i],
 };

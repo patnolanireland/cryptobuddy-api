@@ -1,12 +1,20 @@
 {
     "Server": {
-        "name": "typescript-restify-api",
+        "name": "cryptobuddy-api",
         "authSecret": "pxAiykhD2vczwMAWsUBi",
         "port": 9000,
         "corsHeaders": ["Authorization"],
-        "corsOrigins": ["http://localhost:8100"]
+        "corsOrigins": ["*"]
     },
     "Logger": {
         "level": "trace"
+    },
+    "Services": {
+        "Exchanges": {
+            "Kraken": {
+                "protocol": "https",
+                "hostname": "api.kraken.com"
+            }
+        }
     }
 }
