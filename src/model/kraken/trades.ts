@@ -1,14 +1,25 @@
 import { IDictionaryItem } from '../dictionary-item';
 
-/* This intersection type acts as a tuple with an additonal named property last.
- *
+/*
  * array of array entries(<price>, <volume>, <time>, <buy/sell>, <market/limit>, <miscellaneous>)
- **/
+*/
 export type Trades = [
-    [ string, string, number, string, string, string ]
-] & {
-        /* id to be used as since when polling for new trade data */
-        last: number;
-    };
+    /* <price> */
+    string,
+    /* <volume> */
+    string,
+    /* <time> */
+    number,
+    /* <buy/sell> */
+    string,
+    /* <market/limit> */
+    string,
+    /* <miscellaneous> */
+    string
+];
 
-export type TradesDictionary = IDictionaryItem<Trades>;
+/* The intersection type here allows the dicionary key to be a number to facilate the property
+ * "last" which is used for polling
+ *
+ * */
+export type TradesDictionary = IDictionaryItem<Trades[] | number>;

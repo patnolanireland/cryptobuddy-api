@@ -1,5 +1,6 @@
 import { AssetDictionary } from './asset';
 import { AssetPairDictionary } from './asset-pair';
+import { IDictionaryItem } from '../dictionary-item';
 import { IServerTime } from './server-time';
 import { TickerDataDictionary } from './ticker-data';
 import { OHLCDictionary } from './ohlc';
@@ -12,11 +13,15 @@ export interface IResponse<T> {
     result: T;
 }
 
+export interface IPollableResponse<T> extends IResponse<T> {
+    result: T & { last: number };
+}
+
 export type ServerTimeResponse = IResponse<IServerTime>;
 export type AssetDictionaryResponse = IResponse<AssetDictionary>;
 export type AssetPairDictionaryResponse = IResponse<AssetPairDictionary>;
 export type TickerDataDictionaryResponse = IResponse<TickerDataDictionary>;
-export type OHLCDictionaryResponse = IResponse<OHLCDictionary>;
+export type OHLCDictionaryResponse = IPollableResponse<OHLCDictionary>;
 export type OrderBookDictionaryResponse = IResponse<OrderBookDictionary>;
 export type TradesDictionaryResponse = IResponse<TradesDictionary>;
 export type SpreadDictionaryResponse = IResponse<SpreadDictionary>;

@@ -2,11 +2,12 @@ import { IDictionaryItem } from '../dictionary-item';
 
 /* OHLC - https://en.wikipedia.org/wiki/Open-high-low-close_chart */
 
-/* This intersection type acts as an extended tuple to include a named property last.
+/* This tuple is used as the basis of an OHLC type.  Kraken returns an array of these tuples
  *
- * array of array entries(<time>, <open>, <high>, <low>, <close>, <vwap>, <volume>, <count>) */
+ * [<time>, <open>, <high>, <low>, <close>, <vwap>, <volume>, <count>]
+ *
+ * */
 export type OHLC = [
-    [
         /* <time> */
         number,
         /* <open> */
@@ -23,10 +24,10 @@ export type OHLC = [
         string,
         /* <count> */
         number
-    ]
-] & {
-        /* id to be used as since when polling for new, committed OHLC data */
-        last: number;
-    };
+];
 
-export type OHLCDictionary = IDictionaryItem<OHLC>;
+/* The intersection type here allows the dicionary key to be a number to facilate the property
+ * "last" which is used for polling
+ *
+ * */
+export type OHLCDictionary = IDictionaryItem<OHLC[] | number>;

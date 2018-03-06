@@ -11,6 +11,7 @@ import {
     IAsset,
     IAssetPair,
     IOrderBook,
+    IPollableResponse,
     IResponse,
     IServerTime,
     ITickerData,

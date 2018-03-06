@@ -1,14 +1,15 @@
 import { IDictionaryItem } from '../dictionary-item';
 
-/* This intersection type acts as a tuple with an additonal named property last.
- *
+/*
  * array of array entries(<time>, <bid>, <ask>) *
  **/
 export type Spread = [
-    [ number, string, string ]
-] & {
-    /* id to be used as since when polling for new spread data */
-    last: number;
-};
+    /* <time> */
+    number,
+    /* <bid> */
+    string,
+    /* <ask> */
+    string
+];
 
-export type SpreadDictionary = IDictionaryItem<Spread>;
+export type SpreadDictionary = IDictionaryItem<Spread[] | number>;
